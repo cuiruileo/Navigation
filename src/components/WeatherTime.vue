@@ -12,6 +12,10 @@
     ]"
     @click.stop
   >
+    <div v-if="set.showLunar" class="lunar">
+      <span class="year">{{ timeData.lunar?.GanZhiYear }}</span>
+      <span class="text">{{ timeData.lunar?.text }}</span>
+    </div>
     <div
       class="time"
       @click.stop="
@@ -33,20 +37,17 @@
         <span class="amPm">{{ timeData.amPm ?? "am" }}</span>
       </template>
     </div>
-    <div v-if="set.showLunar" class="lunar">
-      <span class="year">{{ timeData.lunar?.GanZhiYear }}</span>
-      <span class="text">{{ timeData.lunar?.text }}</span>
-    </div>
     <div class="date">
       <span class="month">{{ timeData.month ?? "0" }}</span>
       <span class="day">{{ timeData.day ?? "0" }}</span>
       <span class="weekday">{{ timeData.weekday ?? "星期八" }}</span>
     </div>
     <div v-if="set.showWeather" class="weather">
+      <span class="city">{{ weatherData?.city ?? "N/A" }}</span>
       <span class="status">{{ weatherData?.condition ?? "N/A" }}</span>
       <span class="temperature">{{ weatherData?.temp ?? "N/A" }} ℃</span>
       <span class="wind">{{ weatherData?.windDir ?? "N/A" }}</span>
-      <span v-if="weatherData?.windLevel" class="wind-level"> {{ weatherData.windLevel }} 级 </span>
+      <span v-if="weatherData?.windLevel" class="wind-level">{{ weatherData.windLevel }} 级</span>
     </div>
   </div>
 </template>
@@ -87,19 +88,17 @@ const getWeatherData = async () => {
   };
   // 上次获取天气数据的时间戳与当前时间的时间差（毫秒）
   const timeDifference = currentTime - lastWeatherData.lastFetchTime;
-  // 是否超出 5 分钟
-  if (timeDifference >= 5 * 60 * 1000) {
+  // 是否超出 30 分钟
+  if (timeDifference >= 30 * 60 * 1000) {
     const adCodeResult = await getAdcode(weatherKey);
     if (adCodeResult.infocode !== "10000") {
       return $message.error("地区查询失败");
     }
     // 获取天气数据
     const weatherResult = await getWeather(weatherKey, adCodeResult.adcode);
-    if (weatherResult.infocode !== "10000") {
-      return $message.error("地区查询失败");
-    }
     const data = weatherResult.lives[0];
     weatherData.value = {
+      city: adCodeResult.city,
       condition: data.weather,
       temp: data.temperature,
       windDir: data.winddirection + "风",
@@ -209,11 +208,17 @@ onBeforeUnmount(() => {
     opacity: 0.7;
     font-size: 1rem;
     text-shadow: var(--main-text-shadow);
+    .city {
+      margin: 0 6px;
+    }
+    .status {
+      margin: 0 6px;
+    }
     .temperature {
       margin: 0 6px;
     }
-    .wind-level {
-      margin-left: 6px;
+    .wind {
+      margin: 0 6px;
     }
   }
 

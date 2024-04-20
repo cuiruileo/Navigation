@@ -15,6 +15,7 @@
         @keydown="mainPressKeyboard"
       >
         <WeatherTime />
+        <Hitokoto />
         <SearchInp @contextmenu.stop />
         <AllFunc @contextmenu.stop />
         <Footer />
@@ -52,8 +53,8 @@
         </Transition>
       </main>
       <div v-else id="loading">
-        <img src="/icon/logo.png" alt="logo" class="logo" />
-        <span class="tip">开发中</span>
+        <img src="/images/logo-loading.png" alt="logo" class="logo" />
+        <span class="tip">{{ loadingText }}</span>
       </div>
     </Transition>
   </Provider>
@@ -66,6 +67,7 @@ import { getGreeting } from "@/utils/timeTools";
 import Provider from "@/components/Provider.vue";
 import Cover from "@/components/Cover.vue";
 import WeatherTime from "@/components/WeatherTime.vue";
+import Hitokoto from "@/components/Hitokoto.vue";
 import SearchInp from "@/components/SearchInput/SearchInp.vue";
 import AllFunc from "@/components/AllFunc/AllFunc.vue";
 import Footer from "@/components/Footer.vue";
@@ -76,6 +78,7 @@ const mainClickable = ref(false);
 
 // 获取配置
 const welcomeText = import.meta.env.VITE_WELCOME_TEXT ?? "欢迎访问本站";
+const loadingText = import.meta.env.VITE_LOADING_TEXT ?? "幸福开心每一天";
 
 // 鼠标右键
 const mainContextmenu = (event) => {
@@ -103,6 +106,10 @@ const mainPressKeyboard = (event) => {
     const mainInput = document.getElementById("main-input");
     status.setSiteStatus("focus");
     mainInput?.focus();
+  }
+  // ESC
+  if (keyCode === 27) {
+    status.setSiteStatus("normal");
   }
 };
 

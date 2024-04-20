@@ -24,6 +24,18 @@ export const getWeather = async (key, city) => {
 };
 
 /**
+ * 获取一言文案
+ * https://developer.hitokoto.cn/
+ */
+export const getHitokoto = async (c) => {
+  return axios({
+    method: "GET",
+    url: "https://v1.hitokoto.cn/",
+    params: { c },
+  });
+};
+
+/**
  * 获取搜索建议
  * https://suggestion.baidu.com
  * @param {String} keyWord - 搜索关键字

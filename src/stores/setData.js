@@ -4,44 +4,47 @@ const useSetDataStore = defineStore("setData", {
   state: () => {
     return {
       // 主题类别
-      themeType: "light",
+      themeType: "dark",
       // 壁纸类别
       // 0 本地 / 1 必应 / 2 随机风景 / 3 随机动漫 / 4 自定义
-      backgroundType: 2,
-      backgroundCustom: "",
-      // 壁纸遮罩
-      showBackgroundGray: true,
-      // 壁纸模糊
-      backgroundBlur: 0,
+      backgroundType: 4,
+      backgroundCustom: "https://bing.img.run/rand.php",
       // 搜索引擎
-      searchEngine: "bing",
-      lastSearchEngine: "bing",
+      searchEngine: "baidu",
+      lastSearchEngine: "baidu",
       customEngineUrl: "",
-      // 搜索框收起
-      smallInput: false,
-      // 清空搜索框
-      showCleanInput: true,
-      // 搜索框自动 focus
-      autoFocus: false,
-      // 搜索后搜索框自动失焦
-      autoInputBlur: true,
-      // 时间样式
-      timeStyle: "one",
-      // 显示农历
-      showLunar: false,
-      // 是否显秒
-      showSeconds: false,
-      // 是否显零
-      showZeroTime: true,
-      // 12 小时制
-      use12HourFormat: false,
-      // 天气显示
-      showWeather: true,
       // 是否显示搜索建议
       showSuggestions: true,
       // 跳转方式
       // open 新标签页 / href 当前页面
-      urlJumpType: "open",
+      urlJumpType: "href",
+      // 壁纸遮罩
+      showBackgroundGray: true,
+      // 壁纸模糊
+      backgroundBlur: 3,
+      // 天气显示
+      showWeather: true,
+      // 时间样式
+      timeStyle: "one",
+      // 是否显秒
+      showSeconds: true,
+      // 是否显零
+      showZeroTime: false,
+      // 显示农历
+      showLunar: true,
+      // 12 小时制
+      use12HourFormat: false,
+      // 一言类型
+      hitokotoType: "b",
+      // 搜索框收起
+      smallInput: false,
+      // 搜索框自动 focus
+      autoFocus: false,
+      // 搜索后搜索框自动失焦
+      autoInputBlur: true,
+
+      // 清空搜索框
+      showCleanInput: true,
     };
   },
   actions: {

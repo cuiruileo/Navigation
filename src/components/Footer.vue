@@ -1,7 +1,7 @@
 <template>
   <footer id="footer" @click.stop>
     <div class="copyright">
-      <span class="site-name">{{ siteName }}</span>
+      <span class="site-name">Copyright</span>
       <span class="year">{{ fullYear }}</span>
       <span class="anthor" @click="jumpTo(copyrightLink ?? 'https://github.com/imsyy/Snavigation')">
         {{ siteAnthor }}
@@ -9,29 +9,7 @@
       <span v-if="icp" class="icp" @click="jumpTo('https://beian.miit.gov.cn')">
         {{ icp }}
       </span>
-      <span class="about" @click="aboutSiteModal = true">关于</span>
     </div>
-    <!-- 关于 -->
-    <n-modal
-      preset="card"
-      :bordered="false"
-      v-model:show="aboutSiteModal"
-      transform-origin="center"
-    >
-      <div class="about-modal">
-        <div class="about">
-          <span class="name">{{ siteName }}</span>
-          <span class="version">v {{ packageJson.version }}</span>
-        </div>
-        <div class="desc">
-          <n-space class="link" justify="center">
-            <n-button strong secondary @click="jumpTo('https://github.com/imsyy/Snavigation')">
-              Github
-            </n-button>
-          </n-space>
-        </div>
-      </div>
-    </n-modal>
   </footer>
 </template>
 

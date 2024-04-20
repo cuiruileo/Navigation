@@ -83,7 +83,7 @@
               <span class="title">搜索建议</span>
               <span class="tip">是否显示搜索建议</span>
             </div>
-            <n-switch v-model:value="showSuggestions" :round="false" />
+            <n-switch v-model:value="showSuggestions" :round="true" />
           </n-card>
           <n-card class="set-item">
             <div class="name">
@@ -102,7 +102,7 @@
               <span class="title">壁纸遮罩</span>
               <span class="tip">壁纸周围是否显示暗色遮罩</span>
             </div>
-            <n-switch v-model:value="showBackgroundGray" :round="false" />
+            <n-switch v-model:value="showBackgroundGray" :round="true" />
           </n-card>
           <n-card class="set-item">
             <div class="name">
@@ -124,7 +124,7 @@
               <span class="title">天气显示</span>
               <span class="tip">是否在首页时间下展示天气</span>
             </div>
-            <n-switch v-model:value="showWeather" :round="false" />
+            <n-switch v-model:value="showWeather" :round="true" />
           </n-card>
           <n-card class="set-item">
             <div class="name">
@@ -138,26 +138,34 @@
               <span class="title">时间显秒</span>
               <span class="tip">是否在分钟后面显示秒数</span>
             </div>
-            <n-switch v-model:value="showSeconds" :round="false" />
+            <n-switch v-model:value="showSeconds" :round="true" />
           </n-card>
           <n-card class="set-item">
             <div class="name">
               <span class="title">时钟显零</span>
               <span class="tip">是否在时钟小于 10 时补 0</span>
             </div>
-            <n-switch v-model:value="showZeroTime" :round="false" />
+            <n-switch v-model:value="showZeroTime" :round="true" />
           </n-card>
           <n-card class="set-item">
             <div class="name">
               <span class="title">显示农历</span>
             </div>
-            <n-switch v-model:value="showLunar" :round="false" />
+            <n-switch v-model:value="showLunar" :round="true" />
           </n-card>
           <n-card class="set-item">
             <div class="name">
               <span class="title">12 小时制</span>
             </div>
-            <n-switch v-model:value="use12HourFormat" :round="false" />
+            <n-switch v-model:value="use12HourFormat" :round="true" />
+          </n-card>
+          <n-h6 prefix="bar"> 一言 </n-h6>
+          <n-card class="set-item">
+            <div class="name">
+              <span class="title">一言类型</span>
+              <span class="tip">选择获取的一言类型</span>
+            </div>
+            <n-select class="set" v-model:value="hitokotoType" :options="hitokotoTypeOptions" />
           </n-card>
           <n-h6 prefix="bar"> 搜索框 </n-h6>
           <n-card class="set-item">
@@ -165,21 +173,21 @@
               <span class="title">自动收缩</span>
               <span class="tip">是否在非搜索状态时收起搜索框</span>
             </div>
-            <n-switch v-model:value="smallInput" :round="false" />
+            <n-switch v-model:value="smallInput" :round="true" />
           </n-card>
           <n-card class="set-item">
             <div class="name">
               <span class="title">自动聚焦</span>
               <span class="tip">打开网站时自动聚焦搜索框</span>
             </div>
-            <n-switch v-model:value="autoFocus" :round="false" />
+            <n-switch v-model:value="autoFocus" :round="true" />
           </n-card>
           <n-card class="set-item">
             <div class="name">
               <span class="title">自动失焦</span>
               <span class="tip">跳转搜索后搜索框自动失焦</span>
             </div>
-            <n-switch v-model:value="autoInputBlur" :round="false" />
+            <n-switch v-model:value="autoInputBlur" :round="true" />
           </n-card>
         </n-scrollbar>
       </n-tab-pane>
@@ -271,19 +279,20 @@ const {
   themeType,
   backgroundType,
   backgroundCustom,
+  showSuggestions,
+  urlJumpType,
   showBackgroundGray,
   backgroundBlur,
+  showWeather,
+  timeStyle,
+  showSeconds,
+  showZeroTime,
+  showLunar,
+  use12HourFormat,
+  hitokotoType,
   smallInput,
   autoFocus,
   autoInputBlur,
-  showLunar,
-  showWeather,
-  showSeconds,
-  showZeroTime,
-  use12HourFormat,
-  showSuggestions,
-  urlJumpType,
-  timeStyle,
 } = storeToRefs(set);
 const recoverRef = ref(null);
 const customCoverModal = ref(false);
@@ -349,6 +358,58 @@ const timeStyleOptions = [
   {
     label: "竖向排布",
     value: "two",
+  },
+];
+
+//一言类型
+const hitokotoTypeOptions = [
+  {
+    label: "动画",
+    value: "a",
+  },
+  {
+    label: "漫画",
+    value: "b",
+  },
+  {
+    label: "游戏",
+    value: "c",
+  },
+  {
+    label: "文学",
+    value: "d",
+  },
+  {
+    label: "原创",
+    value: "e",
+  },
+  {
+    label: "来自网络",
+    value: "f",
+  },
+  {
+    label: "其他",
+    value: "g",
+  },
+  {
+    label: "影视",
+    value: "h",
+  },
+  {
+    label: "诗词",
+    value: "i",
+  },
+  {
+    label: "网易云",
+    value: "j",
+  },
+  {
+    label: "哲学",
+    value: "k",
+  },
+  {
+    label: "抖机灵",
+    value: "l",
   },
 ];
 

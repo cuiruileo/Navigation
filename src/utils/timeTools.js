@@ -25,7 +25,7 @@ export const getCurrentTime = (ShowZero = true, Use12Hour = false) => {
     const minute = formatTime(time.getMinutes());
     const second = formatTime(time.getSeconds());
     const weekdayArr = ["日", "一", "二", "三", "四", "五", "六"];
-    const weekday = "周" + weekdayArr[time.getDay()];
+    const weekday = "星期" + weekdayArr[time.getDay()];
     // 获取农历
     const lunar = LunarCalendar.solarToLunar(
       time.getFullYear(),

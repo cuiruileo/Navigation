@@ -21,7 +21,7 @@
           </n-grid-item>
           <n-grid-item class="engine" @click="customEngineModal = true">
             <SvgIcon iconName="icon-custom" />
-            <span class="name">自定义配置</span>
+            <span class="name">配置</span>
           </n-grid-item>
         </n-grid>
       </n-scrollbar>

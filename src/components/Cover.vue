@@ -35,7 +35,7 @@ const setBgUrl = () => {
   const { backgroundType } = set;
   switch (backgroundType) {
     case 0:
-      bgUrl.value = `/background/bg${bgRandom}.jpg`;
+      bgUrl.value = `/images/background/bg${bgRandom}.jpg`;
       break;
     case 1: {
       const isMobile = window.innerWidth < 768;
@@ -52,7 +52,7 @@ const setBgUrl = () => {
       bgUrl.value = set.backgroundCustom;
       break;
     default:
-      bgUrl.value = `/background/bg${bgRandom}.jpg`;
+      bgUrl.value = `/images/background/bg${bgRandom}.jpg`;
       break;
   }
 };
@@ -78,7 +78,7 @@ const imgAnimationEnd = () => {
 const imgLoadError = () => {
   console.error("壁纸加载失败：", bgUrl.value);
   $message.error("壁纸加载失败，已临时切换回默认");
-  bgUrl.value = `/background/bg${bgRandom}.jpg`;
+  bgUrl.value = `/images/background/bg${bgRandom}.jpg`;
 };
 
 onMounted(() => {
