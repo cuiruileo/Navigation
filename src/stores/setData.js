@@ -17,7 +17,7 @@ const useSetDataStore = defineStore("setData", {
       showSuggestions: true,
       // 跳转方式
       // open 新标签页 / href 当前页面
-      urlJumpType: "href",
+      urlJumpType: "open",
       // 壁纸遮罩
       showBackgroundGray: true,
       // 壁纸模糊

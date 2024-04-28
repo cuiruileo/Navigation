@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "name": "My Wiki",
+    "name": "My Wikipedia",
     "url": "https://wiki.didabi.cloud:8000"
   },
   {
@@ -16,16 +16,26 @@
   },
   {
     "id": 3,
+    "name": "Hello Algorithm",
+    "url": "https://algorithm.didabi.cloud:8000"
+  },
+  {
+    "id": 4,
+    "name": "PIC Microcontroller in C",
+    "url": "https://pic.didabi.cloud:8000"
+  },
+  {
+    "id": 5,
     "name": "My Memos",
     "url": "https://memos.didabi.cloud:8000"
   },
   {
-    "id": 4,
+    "id": 6,
     "name": "Nastool",
     "url": "https://nastool.didabi.cloud:8000"
   },
   {
-    "id": 5,
+    "id": 7,
     "name": "IT Tools",
     "url": "https://tools.didabi.cloud:8000"
   }
