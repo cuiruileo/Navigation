@@ -1,0 +1,9 @@
+{
+  "name": "我の主页",
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm run build",
+  "assets": {
+    "directory": "./dist",
+    "notFoundStrategy": "singlePageApplication"
+  }
+}
