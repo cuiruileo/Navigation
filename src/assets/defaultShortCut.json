@@ -1,31 +1,41 @@
 [
   {
     "id": 0,
-    "name": "My Wikipedia",
-    "url": "https://wiki.didabi.cloud:8000"
+    "name": "Blog",
+    "url": "https://blog.didabi.cloud"
   },
   {
     "id": 1,
+    "name": "あだち 充",
+    "url": "https://adachi.didabi.cloud"
+  },
+  {
+    "id": 2,
+    "name": "Wikipedia",
+    "url": "https://wiki.didabi.cloud:8000"
+  },
+  {
+    "id": 3,
     "name": "Hello Algorithm",
     "url": "https://algorithm.didabi.cloud:8000"
   },
   {
-    "id": 2,
-    "name": "PIC Microcontroller in C",
+    "id": 4,
+    "name": "PIC in C",
     "url": "https://pic.didabi.cloud:8000"
   },
   {
-    "id": 3,
+    "id": 5,
     "name": "C++ Studies",
     "url": "https://cpp.didabi.cloud:8000"
   },
   {
-    "id": 4,
-    "name": "あだち 充",
-    "url": "https://adachi.didabi.cloud:8000"
+    "id": 6,
+    "name": "Python Studies",
+    "url": "https://python.didabi.cloud:8000"
   },
   {
-    "id": 5,
+    "id": 7,
     "name": "My Memos",
     "url": "https://memos.didabi.cloud:8000"
   }
